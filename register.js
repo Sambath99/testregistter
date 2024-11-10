@@ -63,7 +63,7 @@ document.getElementById('waitlist-form').addEventListener('submit', async functi
         const templateParams = {
             to_email: emailInput.value,
             reply_to: emailInput.value,
-            from_name: 'Sazy Shop',
+            from_name: 'Anxiety',
             to_name: 'Valued Customer'
         };
 
