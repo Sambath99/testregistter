@@ -5,6 +5,12 @@
     font-family: 'Poppins', sans-serif;
 }
 
+body {
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    min-height: 100vh;
+    margin: 0;
+}
+
 .container {
     min-height: 100vh;
     display: flex;
@@ -12,6 +18,7 @@
     align-items: center;
     background: #000000;
     padding: 20px;
+    overflow: hidden; /* Prevent container overflow */
 }
 
 .waitlist-card {
@@ -24,8 +31,6 @@
     text-align: center;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    transform: translateY(0);
-    transition: transform 0.3s ease;
 }
 
 .waitlist-card:hover {
@@ -247,10 +252,16 @@ button:hover::before {
 
 /* Responsive Design */
 @media (max-width: 480px) {
+    .container {
+        padding: 10px; /* Reduced padding */
+        min-height: 100vh;
+        height: 100%; /* Ensure it fits viewport */
+    }
+    
     .waitlist-card {
-        padding: 20px;
-        margin: 10px;
-        width: 95%;
+        padding: 20px; /* Reduced padding */
+        margin: 0; /* Remove margins */
+        transform: none !important; /* Prevent transform animations on mobile */
     }
     
     h1 {
@@ -659,5 +670,19 @@ img {
     }
     100% {
         text-shadow: 0 0 0px rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* Adjust mobile responsiveness */
+@media (max-width: 480px) {
+    .waitlist-card img {
+        transform: none !important;
+        animation: none; /* Disable floating animation on mobile */
+        margin-bottom: 15px; /* Reduced margin */
+    }
+
+    /* Adjust title animation for mobile */
+    .bebas-neue-regular:hover {
+        letter-spacing: normal; /* Disable letter spacing on mobile */
     }
 }
